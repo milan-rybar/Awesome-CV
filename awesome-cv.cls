@@ -621,6 +621,18 @@
   \phantomsection
 }
 
+
+\newcommand*{\subsectionstyleNormal}[1]{{\fontsize{10pt}{1em}\bodyfont\textcolor{text}{#1}}}
+
+% Define a subsection for CV
+% Usage: \cvsubsectionNormal{<subsection-title>}
+\newcommand{\cvsubsectionNormal}[1]{%
+	\vspace{\acvSectionContentTopSkip}
+	\vspace{-3mm}
+	\subsectionstyleNormal{#1}
+	\phantomsection
+}
+
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
   \vspace{\acvSectionContentTopSkip}
@@ -712,6 +724,30 @@
 \newcommand*{\cvskill}[2]{%
 	\skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
+
+% For elements of publication
+%\newcommand*{\pubstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{text} #1}}
+\newcommand*{\pubstyle}[1]{{\color{text} #1}}
+
+
+% Define an environment for cvpub
+\newenvironment{cvpubs}{%
+	\vspace{\acvSectionContentTopSkip}
+	\vspace{-2mm}
+	\paragraphstyle
+}{%
+	\par
+	\vspace{1mm}
+}
+
+% Define a line of cvpub
+% Usage: \cvpub{<ciation>}
+\newcommand*{\cvpub}[1]{%
+	\leftskip 0.7cm
+	\parindent -0.7cm
+	\pubstyle{#1}
+}
+
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
